@@ -11,7 +11,6 @@
     "frontend:build": "cd visionexplorer-frontend && npm run build",
     "frontend:preview": "cd visionexplorer-frontend && npm run preview",
     "install:all": "npm install && cd visionexplorer-backend && npm install && cd ../visionexplorer-frontend && npm install",
-    "generate-tiles": "cd visionexplorer-backend && npm run generate-tiles-simple",
     "health-check": "curl http://localhost:3000 && curl http://localhost:5173"
   },
   "devDependencies": {

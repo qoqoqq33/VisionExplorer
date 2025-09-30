@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "env": {
+    "VITE_API_URL": "@vite_api_url",
+    "VITE_APP_NAME": "VisionExplorer",
+    "VITE_APP_VERSION": "1.0.0",
+    "VITE_ENABLE_AI_CHAT": "true",
+    "VITE_ENABLE_ANNOTATIONS": "true",
+    "VITE_ENABLE_TIMELINE": "true"
+  }
+}

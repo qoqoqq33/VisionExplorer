@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: visionexplorer-backend
+    runtime: node
+    repo: https://github.com/Jayant-1/VisionExplorer.git
+    rootDir: visionexplorer-backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: CORS_ORIGIN
+        value: https://visionexplorer.vercel.app
+      - key: TILES_DIRECTORY
+        value: ./tiles
+      - key: MAX_ZOOM_LEVEL
+        value: 18
+      - key: TILE_SIZE
+        value: 256

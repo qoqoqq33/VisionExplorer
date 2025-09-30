@@ -7,10 +7,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "generate-tiles": "node scripts/generate-tiles.js",
-    "generate-tiles-async": "node scripts/generate-tiles-gdal-async.js",
-    "generate-tiles-simple": "node scripts/simple-tile-generator.js",
-    "test-tiles": "node scripts/generate-tiles-gdal-async.js --test-tiles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,10 +19,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^3.2.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "gdal-async": "^3.11.4"
+    "express": "^5.1.0"
   }
 }

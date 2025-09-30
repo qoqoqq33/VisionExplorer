@@ -2,6 +2,75 @@
 
 A full-stack application for visualizing NASA imagery with tile-based mapping and advanced annotation features.
 
+## 🌐 Live Demo
+
+- **Frontend**: [https://visionexplorer.vercel.app](https://visionexplo## 🚀 Deployment
+
+### Quick Deployment
+
+Use the automated deployment scripts:
+
+**Windows:**
+
+```powershell
+.\deploy.ps1
+```
+
+**Linux/Mac:**
+
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+
+### Production Hosting
+
+VisionExplorer is configured for deployment on:
+
+- **Frontend**: Vercel (recommended)
+- **Backend**: Render (recommended)
+
+#### Vercel Frontend Deployment
+
+1. **Connect Repository**: Link your GitHub repository to Vercel
+2. **Configure Build**:
+   - Framework: Vite
+   - Root Directory: `visionexplorer-frontend`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+3. **Environment Variables**:
+   ```
+   VITE_API_URL=https://your-backend-url.onrender.com
+   ```
+
+#### Render Backend Deployment
+
+1. **Create Web Service**: Connect your GitHub repository
+2. **Configure Service**:
+   - Root Directory: `visionexplorer-backend`
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+3. **Environment Variables**:
+   ```
+   NODE_ENV=production
+   PORT=3000
+   CORS_ORIGIN=https://your-frontend-url.vercel.app
+   TILES_DIRECTORY=./tiles
+   MAX_ZOOM_LEVEL=18
+   TILE_SIZE=256
+   ```
+
+#### Alternative Platforms
+
+- **Frontend**: Netlify, GitHub Pages, Firebase Hosting
+- **Backend**: Railway, Heroku, DigitalOcean App Platform
+
+For detailed deployment instructions, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**
+
+## � GitHub Deploymenter.vercel.app) _(Replace with your actual URL)_
+
+- **Backend API**: [https://visionexplorer-backend.onrender.com](https://visionexplorer-backend.onrender.com) _(Replace with your actual URL)_
+
 ## 📋 Project Structure
 
 ```
@@ -11,6 +80,11 @@ VisionExplorer/
 ├── package.json                 # Root scripts for running both
 ├── setup.bat                    # Windows setup script
 ├── setup.sh                     # Unix/Linux setup script
+├── deploy.ps1                   # Windows deployment script
+├── deploy.sh                    # Unix/Linux deployment script
+├── vercel.json                  # Vercel deployment config
+├── render.yaml                  # Render deployment config
+├── DEPLOYMENT.md                # Detailed deployment guide
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # This file
 ```
