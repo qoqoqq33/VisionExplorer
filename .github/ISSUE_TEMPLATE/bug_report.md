@@ -1,9 +1,9 @@
 ---
 name: Bug Report
 about: Create a report to help us improve VisionExplorer
-title: '[BUG] '
-labels: ['bug']
-assignees: ''
+title: "[BUG] "
+labels: ["bug"]
+assignees: ""
 ---
 
 ## 🐛 Bug Description
@@ -28,16 +28,19 @@ A clear and concise description of what actually happened.
 ## 📱 Environment
 
 **Frontend:**
+
 - Browser: [e.g. Chrome 120, Firefox 119]
 - OS: [e.g. Windows 11, macOS 14, Ubuntu 22.04]
 - Screen Resolution: [e.g. 1920x1080]
 
 **Backend:**
+
 - Node.js Version: [e.g. 18.17.0]
 - OS: [e.g. Windows 11, Ubuntu 22.04]
 - Backend URL: [e.g. http://localhost:3000]
 
 **NASA Data:**
+
 - Image Format: [e.g. TIF, PNG]
 - Image Size: [e.g. 2048x2048]
 - Zoom Level: [e.g. 5]
@@ -53,11 +56,13 @@ Add any other context about the problem here.
 ## 🔍 Error Logs
 
 **Browser Console:**
+
 ```
 Paste any browser console errors here
 ```
 
 **Backend Logs:**
+
 ```
 Paste any backend server logs here
 ```
@@ -68,4 +73,4 @@ Paste any backend server logs here
 - [ ] Restarted backend server
 - [ ] Regenerated tiles
 - [ ] Checked environment variables
-- [ ] Other: ___________
+- [ ] Other: ****\_\_\_****

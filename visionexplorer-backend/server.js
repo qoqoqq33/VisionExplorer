@@ -1,9 +1,9 @@
 // server.js
 import cors from "cors";
+import { config } from "dotenv";
 import express from "express";
 import fs from "fs";
 import path from "path";
-import { config } from "dotenv";
 
 // Load environment variables
 config();
@@ -12,9 +12,9 @@ const app = express();
 
 // Environment variables with defaults
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const CORS_ORIGIN = process.env.CORS_ORIGIN || '*';
-const TILES_DIRECTORY = process.env.TILES_DIRECTORY || './tiles';
+const NODE_ENV = process.env.NODE_ENV || "development";
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "*";
+const TILES_DIRECTORY = process.env.TILES_DIRECTORY || "./tiles";
 
 // CORS configuration for geospatial applications
 app.use(
@@ -113,7 +113,9 @@ app.listen(PORT, () => {
   console.log(
     `🌍 VisionExplorer Tile Server running at http://localhost:${PORT}`
   );
-  console.log(`📁 Serving tiles from: ${path.join(process.cwd(), TILES_DIRECTORY)}`);
+  console.log(
+    `📁 Serving tiles from: ${path.join(process.cwd(), TILES_DIRECTORY)}`
+  );
   console.log(
     `🔗 Tile URL pattern: http://localhost:${PORT}/tiles/{z}/{x}/{y}.png`
   );

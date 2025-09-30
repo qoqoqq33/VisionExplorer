@@ -20,10 +20,11 @@ Thank you for your interest in contributing to VisionExplorer! This document pro
    cd VisionExplorer
    ```
 3. **Run the setup script**:
+
    ```bash
    # Windows
    setup.bat
-   
+
    # Linux/Mac
    chmod +x setup.sh
    ./setup.sh
@@ -57,6 +58,7 @@ VisionExplorer/
 ### 2. Pull Requests
 
 1. **Create a feature branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -64,18 +66,20 @@ VisionExplorer/
 2. **Make your changes** following our coding standards
 
 3. **Test your changes**:
+
    ```bash
    # Run both servers
    npm run dev
-   
+
    # Test backend
    cd visionexplorer-backend && npm test
-   
+
    # Test frontend
    cd visionexplorer-frontend && npm run lint
    ```
 
 4. **Commit your changes**:
+
    ```bash
    git commit -m "feat: add new tile visualization feature"
    ```
@@ -120,7 +124,7 @@ function createTileSource(metadata) {
  * Returns tile metadata including available zoom levels
  * @returns {Object} Tile metadata
  */
-app.get('/tiles/metadata', (req, res) => {
+app.get("/tiles/metadata", (req, res) => {
   // Implementation
 });
 ```
@@ -182,6 +186,7 @@ npm run dev
 We welcome contributions in these areas:
 
 ### Frontend Features
+
 - **New visualization modes** (3D, time-lapse, etc.)
 - **Advanced annotation tools** (polygons, measurements)
 - **Export functionality** (PDF, high-res images)
@@ -189,6 +194,7 @@ We welcome contributions in these areas:
 - **Mobile responsiveness**
 
 ### Backend Features
+
 - **New NASA data sources** (MODIS, Landsat, etc.)
 - **Advanced tile processing** (color correction, enhancement)
 - **Caching improvements**
@@ -196,6 +202,7 @@ We welcome contributions in these areas:
 - **WebSocket support** for real-time updates
 
 ### DevOps & Infrastructure
+
 - **Docker containerization**
 - **Kubernetes deployment**
 - **Performance monitoring**
@@ -216,16 +223,19 @@ We welcome contributions in these areas:
 ## 📚 Resources
 
 ### NASA Data Sources
+
 - [NASA Earthdata](https://earthdata.nasa.gov/)
 - [NASA Worldview](https://worldview.earthdata.nasa.gov/)
 - [Landsat Program](https://landsat.gsfc.nasa.gov/)
 
 ### Technical Documentation
+
 - [OpenSeadragon API](https://openseadragon.github.io/)
 - [GDAL Documentation](https://gdal.org/)
 - [Web Map Tile Service](https://en.wikipedia.org/wiki/Web_Map_Tile_Service)
 
 ### Development Tools
+
 - [React DevTools](https://reactjs.org/blog/2019/08/15/new-react-devtools.html)
 - [Vite Documentation](https://vitejs.dev/)
 - [Express.js Guide](https://expressjs.com/)
@@ -250,6 +260,7 @@ Report any unacceptable behavior to the project maintainers.
 ## 🏆 Recognition
 
 Contributors will be:
+
 - **Added to README** contributors section
 - **Mentioned in release notes** for significant contributions
 - **Given maintainer status** for consistent, quality contributions

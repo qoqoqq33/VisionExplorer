@@ -1,9 +1,9 @@
 ---
 name: Feature Request
 about: Suggest an idea for VisionExplorer
-title: '[FEATURE] '
-labels: ['enhancement']
-assignees: ''
+title: "[FEATURE] "
+labels: ["enhancement"]
+assignees: ""
 ---
 
 ## 🚀 Feature Summary
@@ -37,18 +37,21 @@ If applicable, add mockups, wireframes, or design ideas.
 ## 🏗️ Technical Considerations
 
 **Frontend Changes:**
+
 - [ ] New React components
 - [ ] UI/UX modifications
 - [ ] API integrations
 - [ ] Performance considerations
 
 **Backend Changes:**
+
 - [ ] New API endpoints
 - [ ] Data processing changes
 - [ ] Database modifications
 - [ ] Security considerations
 
 **NASA Data Integration:**
+
 - [ ] New data sources
 - [ ] Processing algorithms
 - [ ] Tile generation changes
@@ -62,12 +65,14 @@ A clear and concise description of any alternative solutions or features you've 
 ## 📊 Impact Assessment
 
 **Who will this feature benefit?**
+
 - [ ] End users viewing NASA imagery
 - [ ] Developers integrating with the API
 - [ ] Researchers analyzing data
 - [ ] System administrators
 
 **Priority Level:**
+
 - [ ] Critical (blocks current functionality)
 - [ ] High (significantly improves user experience)
 - [ ] Medium (nice to have improvement)

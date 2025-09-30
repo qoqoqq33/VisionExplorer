@@ -20,11 +20,13 @@ VisionExplorer/
 ### Automated Setup (Recommended)
 
 **Windows:**
+
 ```bash
 setup.bat
 ```
 
 **Linux/Mac:**
+
 ```bash
 chmod +x setup.sh
 ./setup.sh
@@ -33,17 +35,20 @@ chmod +x setup.sh
 ### Manual Setup
 
 #### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - Git
 
 #### 1. Install Dependencies
+
 ```bash
 # Install all dependencies (frontend + backend + root)
 npm run install:all
 ```
 
 #### 2. Environment Variables
+
 ```bash
 # Copy environment templates
 cp visionexplorer-backend/.env.example visionexplorer-backend/.env
@@ -51,12 +56,14 @@ cp visionexplorer-frontend/.env.example visionexplorer-frontend/.env
 ```
 
 #### 3. Generate Test Tiles (Optional)
+
 ```bash
 # Generate test pattern tiles for the backend
 npm run generate-tiles
 ```
 
 #### 4. Start Development Servers
+
 ```bash
 # Start both frontend and backend in development mode
 npm run dev
@@ -239,6 +246,7 @@ git push -u origin main
 ### 4. Environment Variables for Production
 
 **Backend (.env):**
+
 ```env
 PORT=3000
 NODE_ENV=production
@@ -246,6 +254,7 @@ CORS_ORIGIN=https://your-frontend-domain.com
 ```
 
 **Frontend (.env):**
+
 ```env
 VITE_API_URL=https://your-backend-domain.com
 ```
@@ -253,11 +262,13 @@ VITE_API_URL=https://your-backend-domain.com
 ### 5. Deployment Options
 
 **Frontend (Vercel/Netlify):**
+
 - Build command: `npm run build`
 - Output directory: `dist`
 - Root directory: `visionexplorer-frontend`
 
 **Backend (Railway/Heroku/DigitalOcean):**
+
 - Start command: `npm start`
 - Root directory: `visionexplorer-backend`
 - Port: Use `process.env.PORT`
