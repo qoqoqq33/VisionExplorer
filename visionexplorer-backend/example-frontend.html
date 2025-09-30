@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VisionExplorer - NASA Imagery Viewer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+      .info-panel {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-width: 300px;
+      }
+      .info-panel h3 {
+        margin-top: 0;
+      }
+      .status {
+        padding: 5px;
+        border-radius: 3px;
+        margin: 5px 0;
+      }
+      .status.success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .status.error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .coords {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-family: monospace;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <div class="info-panel">
+      <h3>🌍 VisionExplorer</h3>
+      <div id="server-status">Checking server...</div>
+      <div id="tile-info"></div>
+      <p><strong>Controls:</strong></p>
+      <ul>
+        <li>Zoom: Mouse wheel or +/- buttons</li>
+        <li>Pan: Click and drag</li>
+        <li>Full screen: F11</li>
+      </ul>
+    </div>
+
+    <div class="coords" id="coordinates">Lat: 0.000, Lng: 0.000 | Zoom: 2</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      // Configuration
+      const TILE_SERVER_URL = "http://localhost:3000";
+      const TILE_URL_PATTERN = `${TILE_SERVER_URL}/tiles/{z}/{x}/{y}.png`;
+
+      // Initialize map
+      const map = L.map("map").setView([0, 0], 2);
+
+      // Add base layer (OpenStreetMap for reference)
+      const osmLayer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          attribution: "© OpenStreetMap contributors",
+          maxZoom: 19,
+        }
+      );
+
+      // Add NASA imagery layer
+      const nasaLayer = L.tileLayer(TILE_URL_PATTERN, {
+        attribution: "NASA Imagery via VisionExplorer",
+        maxZoom: 18,
+        errorTileUrl:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==", // Transparent 1x1 pixel
+        opacity: 0.8,
+      });
+
+      // Layer control
+      const baseLayers = {
+        OpenStreetMap: osmLayer,
+        None: L.tileLayer("", {}),
+      };
+
+      const overlayLayers = {
+        "NASA Imagery": nasaLayer,
+      };
+
+      // Add layers to map
+      osmLayer.addTo(map);
+      nasaLayer.addTo(map);
+
+      // Add layer control
+      L.control.layers(baseLayers, overlayLayers).addTo(map);
+
+      // Update coordinates display
+      function updateCoordinates(e) {
+        const lat = e.latlng.lat.toFixed(6);
+        const lng = e.latlng.lng.toFixed(6);
+        const zoom = map.getZoom();
+        document.getElementById(
+          "coordinates"
+        ).innerHTML = `Lat: ${lat}, Lng: ${lng} | Zoom: ${zoom}`;
+      }
+
+      map.on("mousemove", updateCoordinates);
+      map.on("zoomend", updateCoordinates);
+
+      // Check server status
+      async function checkServerStatus() {
+        const statusDiv = document.getElementById("server-status");
+        try {
+          const response = await fetch(`${TILE_SERVER_URL}/`);
+          const data = await response.json();
+          statusDiv.innerHTML =
+            '<div class="status success">✅ Server Online</div>';
+
+          // Get tile metadata
+          const metaResponse = await fetch(`${TILE_SERVER_URL}/tiles/metadata`);
+          const metaData = await metaResponse.json();
+
+          document.getElementById("tile-info").innerHTML = `
+                    <p><strong>Available Zoom Levels:</strong> ${
+                      metaData.zoomLevels.join(", ") || "None"
+                    }</p>
+                    <p><strong>Server Time:</strong> ${new Date(
+                      metaData.serverTime
+                    ).toLocaleTimeString()}</p>
+                `;
+
+          if (metaData.zoomLevels.length > 0) {
+            // Zoom to first available level
+            map.setZoom(Math.max(2, Math.min(...metaData.zoomLevels)));
+          }
+        } catch (error) {
+          statusDiv.innerHTML =
+            '<div class="status error">❌ Server Offline</div>';
+          document.getElementById("tile-info").innerHTML =
+            "<p>Start the server with: <code>npm start</code></p>";
+        }
+      }
+
+      // Tile loading events
+      nasaLayer.on("tileload", function (e) {
+        console.log("Tile loaded:", e.url);
+      });
+
+      nasaLayer.on("tileerror", function (e) {
+        console.log("Tile error:", e.url);
+      });
+
+      // Error handling for tile loading
+      let tileErrorCount = 0;
+      nasaLayer.on("tileerror", function () {
+        tileErrorCount++;
+        if (tileErrorCount === 1) {
+          document.getElementById("tile-info").innerHTML +=
+            "<p><em>Note: Some tiles may not be available at this zoom level.</em></p>";
+        }
+      });
+
+      // Reset error count on successful tile load
+      nasaLayer.on("tileload", function () {
+        tileErrorCount = 0;
+      });
+
+      // Check server status on page load
+      checkServerStatus();
+
+      // Refresh server status every 30 seconds
+      setInterval(checkServerStatus, 30000);
+
+      // Keyboard shortcuts
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "r" || e.key === "R") {
+          location.reload();
+        }
+      });
+
+      console.log("🗺️ VisionExplorer initialized");
+      console.log("Tile URL pattern:", TILE_URL_PATTERN);
+      console.log("Press R to refresh the page");
+    </script>
+  </body>
+</html>

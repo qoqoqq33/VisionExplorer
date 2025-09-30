@@ -1,0 +1,30 @@
+{
+  "name": "visionexplorer-app",
+  "version": "1.0.0",
+  "description": "VisionExplorer - Frontend + Backend Integration",
+  "scripts": {
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "start": "concurrently \"npm run backend:start\" \"npm run frontend:build && npm run frontend:preview\"",
+    "backend:dev": "cd visionexplorer-backend && npm run dev",
+    "backend:start": "cd visionexplorer-backend && npm start",
+    "frontend:dev": "cd visionexplorer-frontend && npm run dev",
+    "frontend:build": "cd visionexplorer-frontend && npm run build",
+    "frontend:preview": "cd visionexplorer-frontend && npm run preview",
+    "install:all": "npm install && cd visionexplorer-backend && npm install && cd ../visionexplorer-frontend && npm install",
+    "generate-tiles": "cd visionexplorer-backend && npm run generate-tiles-simple",
+    "health-check": "curl http://localhost:3000 && curl http://localhost:5173"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "keywords": [
+    "nasa",
+    "geospatial",
+    "visualization",
+    "react",
+    "express",
+    "tiles"
+  ],
+  "author": "",
+  "license": "ISC"
+}
